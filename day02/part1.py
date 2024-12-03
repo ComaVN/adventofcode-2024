@@ -7,19 +7,17 @@ def parse_report(line):
 
 
 def safe(report):
-    if len(report) < 2:
+    if len(report) < 1:
         return True
-    if report[0] == report[1]:
-        return False
-    increasing = True if report[1] > report[0] else False
-    if abs(report[1] - report[0]) > 3:
-        return False
-    prev = report[1]
-    for v in report[2:]:
+    prev = report[0]
+    increasing = None
+    for v in report[1:]:
         diff = v - prev
         if diff == 0:
-            print("same", increasing, v, diff, report)
+            print("same", v, diff, report)
             return False
+        if increasing is None:
+            increasing = diff > 0
         if (diff > 0) != increasing:
             print("wrong direction", increasing, v, diff, report)
             return False
