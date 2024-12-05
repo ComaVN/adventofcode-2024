@@ -21,7 +21,7 @@ def verify_order(ordering_rules, pages):
             if set(pages[:idx]) & page_rule["lt"]:
                 valid = False
                 break
-            if set(pages[idx:]) & page_rule["gt"]:
+            if set(pages[idx + 1 :]) & page_rule["gt"]:
                 valid = False
                 break
     return valid
