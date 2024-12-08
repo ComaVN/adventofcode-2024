@@ -44,7 +44,7 @@ class Map:
                         self.map[y][x].antinode = True
 
     def count_antinodes(self):
-        print(sum([sum([1 if p.antinode else 0 for p in line]) for line in self.map]))
+        return sum([sum([1 if p.antinode else 0 for p in line]) for line in self.map])
 
 
 class MapPoint:
