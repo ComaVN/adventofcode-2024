@@ -96,6 +96,7 @@ class Computer:
 def main():
     for filename in (
         "input.example.txt",
+        "input.quine.example.txt",
         "input.txt",
     ):
         filepath = pathlib.Path(__file__).parent / filename
